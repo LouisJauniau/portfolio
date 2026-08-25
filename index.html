@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Louis Jauniau · Master 2 Informatique · Data &amp; IA</title>
+<meta name="description" content="Louis Jauniau, étudiant en Master 2 Données, Connaissances &amp; Intelligence à l'Université Paris Cité. Data engineering, data science et IA engineering. Recherche un stage de fin d'études de 4 à 6 mois à partir de janvier 2027.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23F5B544' text-anchor='middle'%3ELJ%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Louis Jauniau · Master 2 Informatique · Data &amp; IA">
+<meta property="og:description" content="Étudiant en M2 Données, Connaissances &amp; Intelligence. Data engineering, data science, IA engineering. Stage de fin d'études à partir de janvier 2027.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root{
+    --bg:#0B0D10;
+    --bg-soft:#111418;
+    --line:#23272e;
+    --line-soft:#191d22;
+    --ink:#EDEAE3;
+    --ink-dim:#9aa0a8;
+    --ink-faint:#7d838a;
+    --accent:#F5B544;
+    --radius:12px;
+    --maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Hanken Grotesk',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* grain fin, sans halo lumineux */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+  .skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--accent);color:#1a1205;
+    padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;font-size:15px}
+  .skip:focus{left:0}
+
+  /* ---- LANGUE ---- */
+  html[data-lang="fr"] [lang="en"]{display:none}
+  html[data-lang="en"] [lang="fr"]{display:none}
+
+  /* ---- NAV ---- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(11,13,16,0.85);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:flex;align-items:center;gap:22px}
+  .brand{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:19px;letter-spacing:-0.01em;margin-right:auto}
+  .nav-links{display:flex;gap:24px;font-size:14.5px;color:var(--ink-dim)}
+  .nav-links a{transition:color .2s;position:relative;white-space:nowrap}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--accent);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .lang{display:flex;align-items:center;gap:2px;font-family:'JetBrains Mono',monospace;font-size:12px}
+  .lang button{
+    background:none;border:1px solid transparent;color:var(--ink-faint);cursor:pointer;
+    font:inherit;padding:4px 7px;border-radius:6px;transition:color .2s,border-color .2s;
+  }
+  .lang button:hover{color:var(--ink)}
+  .lang button[aria-pressed="true"]{color:var(--accent);border-color:var(--line)}
+  .lang .sep{color:#3a4048}
+  @media(max-width:760px){
+    .nav-in{flex-wrap:wrap;padding:12px 0 0;gap:0}
+    .brand{padding-left:22px}
+    .lang{padding-right:18px}
+    .nav-links{order:3;width:100%;margin-top:12px;gap:22px;overflow-x:auto;padding:0 22px 11px;scrollbar-width:none}
+    .nav-links::-webkit-scrollbar{display:none}
+    section{scroll-margin-top:104px}
+  }
+
+  /* ---- HERO ---- */
+  header{padding:78px 0 64px}
+  h1{
+    font-family:'Fraunces',Georgia,serif;font-weight:400;font-style:normal;
+    font-size:clamp(32px,5.2vw,54px);line-height:1.1;letter-spacing:-0.02em;
+    max-width:17ch;margin-bottom:24px;
+  }
+  .lede{font-size:clamp(17px,2vw,19.5px);color:var(--ink-dim);max-width:62ch;margin-bottom:28px}
+  .lede strong{color:var(--ink);font-weight:600}
+  .avail{
+    border-left:2px solid var(--accent);padding:2px 0 2px 20px;
+    max-width:56ch;margin-bottom:30px;font-size:16.5px;color:var(--ink);
+  }
+  .avail b{font-weight:600}
+  .hero-meta{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-faint);margin-bottom:30px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:13px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:12px 21px;border-radius:100px;
+    font-size:15px;font-weight:600;transition:transform .2s, background .2s, border-color .2s, color .2s;
+  }
+  .btn-primary{background:var(--accent);color:#1a1205}
+  .btn-primary:hover{transform:translateY(-2px);background:#ffc65c}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink);background:var(--bg-soft)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+  .btn svg{width:17px;height:17px;flex:none}
+
+  /* ---- SECTIONS ---- */
+  section{padding:56px 0;scroll-margin-top:82px}
+  .sec-head{display:flex;align-items:center;gap:18px;margin-bottom:36px}
+  .sec-title{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(26px,3.4vw,34px);letter-spacing:-0.02em}
+  .sec-line{flex:1;height:1px;background:var(--line)}
+
+  /* ---- À PROPOS ---- */
+  .about-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:52px;align-items:start}
+  @media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:34px}}
+  .about-bio{display:flex;flex-direction:column;gap:16px}
+  .about-grid p{color:var(--ink-dim);max-width:66ch}
+  .about-grid p strong{color:var(--ink);font-weight:600}
+  .facts{display:flex;flex-direction:column;gap:18px;padding-top:4px}
+  .fact .k{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  .fact .v{font-size:15.5px;color:var(--ink);line-height:1.45}
+
+  /* ---- COMPÉTENCES ---- */
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 48px}
+  @media(max-width:680px){.skills{grid-template-columns:1fr;gap:28px}}
+  .skill h3{font-size:14px;font-weight:600;letter-spacing:0.02em;color:var(--ink);margin-bottom:12px}
+  .tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:5px 11px;border-radius:100px;
+    background:var(--bg-soft);border:1px solid var(--line);color:var(--ink-dim)}
+
+  /* ---- PROJETS ---- */
+  .proj{display:grid;grid-template-columns:76px 1fr;gap:26px;padding:32px 0;border-top:1px solid var(--line)}
+  .proj:last-child{border-bottom:1px solid var(--line)}
+  @media(max-width:680px){.proj{grid-template-columns:1fr;gap:10px;padding:26px 0}}
+  .proj-year{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);padding-top:6px}
+  .proj-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:8px}
+  .proj-name{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:24px;letter-spacing:-0.01em}
+  .proj-role{font-size:13px;color:var(--ink-faint);font-family:'JetBrains Mono',monospace}
+  .proj-desc{color:var(--ink-dim);max-width:68ch;margin-bottom:15px}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+  .proj-links{display:flex;flex-wrap:wrap;gap:20px}
+  .proj-link{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink);transition:color .2s}
+  .proj-link:hover{color:var(--accent)}
+  .proj-link svg{width:15px;height:15px;flex:none}
+  .proj-link.muted{color:var(--ink-faint)}
+  .proj-link.muted:hover{color:var(--ink)}
+
+  /* ---- PARCOURS ---- */
+  .tl-item{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:20px 0;border-top:1px solid var(--line-soft)}
+  .tl-item:first-child{border-top:none;padding-top:0}
+  @media(max-width:680px){.tl-item{grid-template-columns:1fr;gap:5px}}
+  .tl-date{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);padding-top:4px}
+  .tl-role{font-family:'Fraunces',Georgia,serif;font-size:19px;font-weight:500;margin-bottom:2px}
+  .tl-org{font-size:14px;color:var(--ink-faint);margin-bottom:7px}
+  .tl-desc{font-size:15px;color:var(--ink-dim);max-width:66ch}
+
+  /* ---- CONTACT ---- */
+  .contact{padding:76px 0 84px}
+  .contact h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(28px,4.4vw,44px);letter-spacing:-0.02em;margin-bottom:16px;line-height:1.14;max-width:20ch}
+  .contact p{color:var(--ink-dim);max-width:56ch;margin-bottom:30px}
+  .social{display:flex;gap:12px;flex-wrap:wrap}
+  .soc{display:inline-flex;align-items:center;gap:9px;padding:10px 17px;border:1px solid var(--line);
+    border-radius:100px;font-size:14.5px;color:var(--ink-dim);transition:color .2s,border-color .2s,transform .2s;background:var(--bg-soft)}
+  .soc:hover{color:var(--ink);border-color:var(--accent);transform:translateY(-2px)}
+  .soc svg{width:16px;height:16px;flex:none}
+
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--ink-faint);font-size:13px;font-family:'JetBrains Mono',monospace}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between}
+
+  /* ---- RÉVÉLATION AU SCROLL (progressive, jamais bloquante) ---- */
+  .js .reveal{opacity:0;transform:translateY(16px);
+    transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .js .reveal{opacity:1;transform:none;transition:none}
+    *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main"><span lang="fr">Aller au contenu</span><span lang="en">Skip to content</span></a>
+
+<nav>
+  <div class="nav-in">
+    <a href="#top" class="brand">Louis Jauniau</a>
+    <div class="nav-links">
+      <a href="#about"><span lang="fr">À propos</span><span lang="en">About</span></a>
+      <a href="#skills"><span lang="fr">Compétences</span><span lang="en">Skills</span></a>
+      <a href="#projects"><span lang="fr">Projets</span><span lang="en">Projects</span></a>
+      <a href="#path"><span lang="fr">Parcours</span><span lang="en">Background</span></a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-setlang="fr" aria-pressed="true">FR</button>
+      <span class="sep" aria-hidden="true">/</span>
+      <button type="button" data-setlang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+<main id="main">
+
+  <!-- HERO -->
+  <header>
+    <h1 class="reveal">
+      <span lang="fr">J'apprends la data et l'IA en construisant.</span>
+      <span lang="en">I learn data and AI by building things.</span>
+    </h1>
+    <p class="avail reveal">
+      <span lang="fr">Je cherche un <b>stage de fin d'études de 4 à 6 mois</b>, à partir de janvier ou février 2027, en Île-de-France ou à distance.</span>
+      <span lang="en">I'm looking for a <b>4 to 6 month final-year internship</b>, starting January or February 2027, in the Paris area or remote.</span>
+    </p>
+    <p class="lede reveal">
+      <span lang="fr">Étudiant en <strong>Master 2 Données, Connaissances &amp; Intelligence</strong> à l'Université Paris Cité. Je m'oriente vers le <strong>data engineering</strong>, la <strong>data science</strong> et l'<strong>IA engineering</strong>. Ce que j'aime : prendre un sujet que je ne connais pas et le pousser jusqu'à quelque chose qui tourne vraiment.</span>
+      <span lang="en">Second-year Master's student in <strong>Data, Knowledge &amp; Intelligence</strong> at Université Paris Cité. I'm heading towards <strong>data engineering</strong>, <strong>data science</strong> and <strong>AI engineering</strong>. What I enjoy: picking up a subject I don't know and pushing it until something actually runs.</span>
+    </p>
+    <p class="hero-meta reveal">
+      <span lang="fr">Paris, France · Français, anglais, espagnol</span>
+      <span lang="en">Paris, France · French, English, Spanish</span>
+    </p>
+    <div class="cta-row reveal">
+      <a class="btn btn-primary" href="mailto:louis.jauniau@gmail.com?subject=Proposition%20de%20stage">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span lang="fr">Me proposer un stage</span><span lang="en">Send me an internship offer</span>
+      </a>
+      <a class="btn btn-ghost" href="#projects">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span lang="fr">Voir les trois projets</span><span lang="en">See the three projects</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- À PROPOS -->
+  <section id="about">
+    <div class="sec-head reveal">
+      <h2 class="sec-title"><span lang="fr">À propos</span><span lang="en">About</span></h2>
+      <span class="sec-line" aria-hidden="true"></span>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio reveal">
+        <p lang="fr">Après une licence d'informatique à l'Université Paris Cité, j'y suis maintenant en <strong>Master 2 Données, Connaissances &amp; Intelligence</strong>. Ce qui m'intéresse, c'est la chaîne complète qui transforme des données brutes en quelque chose d'utilisable : les pipelines qui les préparent, les modèles qui les exploitent, les applications qui les rendent lisibles.</p>
+        <p lang="en">After a Computer Science bachelor's at Université Paris Cité, I'm now in the <strong>second year of a Master's in Data, Knowledge &amp; Intelligence</strong> at the same university. What interests me is the full chain that turns raw data into something usable: the pipelines that prepare it, the models that exploit it, the applications that make it readable.</p>
+        <p lang="fr">J'apprends ces domaines en les pratiquant, et je change volontiers de terrain. Cette année, mon projet de recherche m'a mené vers la vie privée des données, avec du scikit-learn, du pandas et un moteur d'anonymisation. L'année d'avant, c'était une application cartographique avec un chatbot branché sur l'API OpenAI. Avant encore, un jeu 3D sous Unity.</p>
+        <p lang="en">I learn these fields by practising them, and I move between them willingly. This year my research project took me into data privacy, with scikit-learn, pandas and an anonymisation engine. The year before, a mapping app with a chatbot wired to the OpenAI API. Before that, a 3D game in Unity.</p>
+        <p lang="fr">Je n'ai pas encore choisi une spécialité unique, et c'est délibéré : je veux d'abord voir comment ces métiers se rejoignent sur des projets réels. Pour mon stage, je cherche une équipe où monter en compétence sur des données qui servent à quelque chose.</p>
+        <p lang="en">I haven't settled on a single specialism yet, and that's deliberate: I want to see first how these roles meet on real projects. For my internship, I'm looking for a team where I can build real skill on data that's actually used.</p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact">
+          <div class="k"><span lang="fr">Recherche</span><span lang="en">Looking for</span></div>
+          <div class="v"><span lang="fr">Stage de 4 à 6 mois, à partir de janvier 2027</span><span lang="en">4 to 6 month internship, from January 2027</span></div>
+        </div>
+        <div class="fact">
+          <div class="k"><span lang="fr">Formation</span><span lang="en">Education</span></div>
+          <div class="v"><span lang="fr">Master 2 Informatique, Université Paris Cité</span><span lang="en">Master's 2 in Computer Science, Université Paris Cité</span></div>
+        </div>
+        <div class="fact">
+          <div class="k"><span lang="fr">Domaines</span><span lang="en">Focus</span></div>
+          <div class="v"><span lang="fr">Data engineering · Data science · IA engineering</span><span lang="en">Data engineering · Data science · AI engineering</span></div>
+        </div>
+        <div class="fact">
+          <div class="k"><span lang="fr">Localisation</span><span lang="en">Location</span></div>
+          <div class="v"><span lang="fr">Paris, Île-de-France</span><span lang="en">Paris, France</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="skills">
+    <div class="sec-head reveal">
+      <h2 class="sec-title"><span lang="fr">Compétences</span><span lang="en">Skills</span></h2>
+      <span class="sec-line" aria-hidden="true"></span>
+    </div>
+    <div class="skills">
+      <div class="skill reveal">
+        <h3><span lang="fr">Data &amp; machine learning</span><span lang="en">Data &amp; machine learning</span></h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span>
+          <span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">JPype</span>
+          <span class="tag">ARX</span>
+        </div>
+      </div>
+      <div class="skill reveal">
+        <h3><span lang="fr">Langages</span><span lang="en">Languages</span></h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Java</span><span class="tag">SQL</span>
+          <span class="tag">C</span><span class="tag">C++</span><span class="tag">C#</span>
+          <span class="tag">JavaScript</span><span class="tag">Dart</span>
+        </div>
+      </div>
+      <div class="skill reveal">
+        <h3><span lang="fr">Applications &amp; API</span><span lang="en">Apps &amp; APIs</span></h3>
+        <div class="tags">
+          <span class="tag">Node.js</span><span class="tag">React</span><span class="tag">Flutter</span>
+          <span class="tag">Firebase</span><span class="tag">OpenAI API</span><span class="tag">HTML</span>
+          <span class="tag">CSS</span><span class="tag">Unity</span>
+        </div>
+      </div>
+      <div class="skill reveal">
+        <h3><span lang="fr">Outils</span><span lang="en">Tools</span></h3>
+        <div class="tags">
+          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">SVN</span>
+          <span class="tag">VS Code</span><span class="tag">Ubuntu</span><span class="tag">Android Studio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projects">
+    <div class="sec-head reveal">
+      <h2 class="sec-title"><span lang="fr">Projets</span><span lang="en">Projects</span></h2>
+      <span class="sec-line" aria-hidden="true"></span>
+    </div>
+
+    <article class="proj reveal">
+      <div class="proj-year">2026</div>
+      <div>
+        <div class="proj-top">
+          <h3 class="proj-name"><span lang="fr">Benchmark d'attaques sur données anonymisées</span><span lang="en">Privacy Attack Benchmarking</span></h3>
+          <span class="proj-role"><span lang="fr">TER · Recherche</span><span lang="en">TER · Research</span></span>
+        </div>
+        <p class="proj-desc" lang="fr">Un <strong>pipeline Python de bout en bout</strong> : ingérer un jeu de données, l'anonymiser via le moteur ARX, entraîner des modèles d'attaque en scikit-learn, puis mesurer ce qui reste identifiable et ce que l'anonymisation a coûté en utilité. Appariement de schémas sur colonnes obfusquées, métriques automatisées et rapports HTML générés à chaque exécution.</p>
+        <p class="proj-desc" lang="en">An <strong>end-to-end Python pipeline</strong>: ingest a dataset, anonymise it through the ARX engine, train attack models in scikit-learn, then measure what stays identifiable and what the anonymisation cost in utility. Schema matching on obfuscated columns, automated metrics and HTML reports generated on every run.</p>
+        <div class="proj-tags">
+          <span class="tag">Python</span><span class="tag">ARX</span><span class="tag">k-anonymity</span>
+          <span class="tag">scikit-learn</span><span class="tag">JPype</span><span class="tag">pandas</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://louisjauniau.github.io/TER_privacy_attack/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            <span lang="fr">Démonstration</span><span lang="en">Live demo</span></a>
+          <a class="proj-link muted" href="https://github.com/LouisJauniau/TER_privacy_attack" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.3a10.7 10.7 0 0 0-3.4 20.9c.5.1.7-.2.7-.5v-1.9c-3 .6-3.6-1.4-3.6-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.6 2.5 1.2 3.1.9.1-.7.4-1.2.7-1.5-2.4-.3-4.9-1.2-4.9-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.2-2.5 5.1-4.9 5.4.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.7 10.7 0 0 0 12 1.3"/></svg>
+            <span lang="fr">Code source</span><span lang="en">Source code</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj reveal">
+      <div class="proj-year">2025</div>
+      <div>
+        <div class="proj-top">
+          <h3 class="proj-name">AURA · <span lang="fr">guide d'architecture</span><span lang="en">architecture guide</span></h3>
+          <span class="proj-role"><span lang="fr">Projet de groupe</span><span lang="en">Group project</span></span>
+        </div>
+        <p class="proj-desc" lang="fr">Une application cartographique pour explorer l'architecture contemporaine parisienne. Migration d'une application mobile Flutter vers une <strong>Progressive Web App</strong>, gestion des contenus et des médias via Firebase, intégration d'un <strong>chatbot</strong> spécialisé en architecture (OpenAI) et refonte de l'interface d'administration.</p>
+        <p class="proj-desc" lang="en">A mapping app to explore contemporary architecture in Paris. Migration from a Flutter mobile app to a <strong>Progressive Web App</strong>, content and media management through Firebase, an architecture-focused <strong>chatbot</strong> (OpenAI), and a rebuilt admin interface.</p>
+        <div class="proj-tags">
+          <span class="tag">Flutter</span><span class="tag">PWA</span><span class="tag">Firebase</span>
+          <span class="tag">Dart</span><span class="tag">OpenAI API</span><span class="tag">Maps</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://l3as1-8cefe.web.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            <span lang="fr">Ouvrir l'application</span><span lang="en">Open the app</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj reveal">
+      <div class="proj-year">2024</div>
+      <div>
+        <div class="proj-top">
+          <h3 class="proj-name">Pac-Man 3D</h3>
+          <span class="proj-role"><span lang="fr">Projet de groupe · Unity</span><span lang="en">Group project · Unity</span></span>
+        </div>
+        <p class="proj-desc" lang="fr">Une relecture en 3D du Pac-Man original, développée sous Unity : <strong>quatre niveaux aux ambiances distinctes</strong> (de l'arcade fidèle au niveau d'horreur, jusqu'à un boss final vertical), IA des fantômes via NavMesh, mode marathon, système de sauvegarde et menus complets. Testé sur 200 parties avec 30 joueurs.</p>
+        <p class="proj-desc" lang="en">A 3D take on the original Pac-Man, built in Unity: <strong>four levels with distinct atmospheres</strong> (from faithful arcade play to a horror level and a vertical final boss), ghost AI through NavMesh, a marathon mode, a save system and complete menus. Tested over 200 games with 30 players.</p>
+        <div class="proj-tags">
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">NavMesh</span>
+          <span class="tag">Game Design</span><span class="tag">3D</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://corneiletbernie.github.io/PacMan3D/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            <span lang="fr">Jouer dans le navigateur</span><span lang="en">Play in the browser</span></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- PARCOURS -->
+  <section id="path">
+    <div class="sec-head reveal">
+      <h2 class="sec-title"><span lang="fr">Parcours</span><span lang="en">Background</span></h2>
+      <span class="sec-line" aria-hidden="true"></span>
+    </div>
+    <div class="tl">
+      <div class="tl-item reveal">
+        <div class="tl-date"><span lang="fr">2026 · en cours</span><span lang="en">2026 · ongoing</span></div>
+        <div>
+          <h3 class="tl-role"><span lang="fr">Master 2 · Données, Connaissances &amp; Intelligence</span><span lang="en">Master's 2 · Data, Knowledge &amp; Intelligence</span></h3>
+          <div class="tl-org">Université Paris Cité</div>
+          <p class="tl-desc" lang="fr">Approfondissement en recherche d'information, protection des données et apprentissage automatique. Stage de fin d'études prévu à partir de janvier 2027.</p>
+          <p class="tl-desc" lang="en">Advanced information retrieval, data protection and machine learning. Final-year internship planned from January 2027.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2025 · 2026</div>
+        <div>
+          <h3 class="tl-role"><span lang="fr">Master 1 · Données, Connaissances &amp; Intelligence</span><span lang="en">Master's 1 · Data, Knowledge &amp; Intelligence</span></h3>
+          <div class="tl-org">Université Paris Cité</div>
+          <p class="tl-desc" lang="fr">Recherche d'information, vie privée, apprentissage automatique et développement avancé. Projet de recherche (TER) sur les attaques par ré-identification.</p>
+          <p class="tl-desc" lang="en">Information retrieval, data privacy, machine learning and advanced development. Research project (TER) on re-identification attacks.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2022 · 2025</div>
+        <div>
+          <h3 class="tl-role"><span lang="fr">Licence d'informatique</span><span lang="en">Bachelor's in Computer Science</span></h3>
+          <div class="tl-org">Université Paris Cité</div>
+          <p class="tl-desc" lang="fr">Fondamentaux de l'informatique, projets de groupe en développement web, mobile et jeu vidéo (AURA, Pac-Man 3D).</p>
+          <p class="tl-desc" lang="en">Computer science fundamentals, group projects in web, mobile and video game development (AURA, Pac-Man 3D).</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2023 · 2024</div>
+        <div>
+          <h3 class="tl-role"><span lang="fr">Vente et relation client</span><span lang="en">Sales &amp; customer relations</span></h3>
+          <div class="tl-org">GROM · Amorino · Intersport</div>
+          <p class="tl-desc" lang="fr">Postes saisonniers : travail en équipe, relation client et gestion du temps, avec la formation de nouveaux apprentis.</p>
+          <p class="tl-desc" lang="en">Seasonal roles: teamwork, customer communication and time management, including training new apprentices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2 class="reveal">
+      <span lang="fr">Disponible pour un stage à partir de janvier 2027.</span>
+      <span lang="en">Available for an internship from January 2027.</span>
+    </h2>
+    <p class="reveal">
+      <span lang="fr">Une proposition de stage en data ou en IA, une question sur l'un de mes projets, ou simplement un échange : ma boîte mail est ouverte.</span>
+      <span lang="en">An internship offer in data or AI, a question about one of my projects, or just a conversation: my inbox is open.</span>
+    </p>
+    <div class="social reveal">
+      <a class="soc" href="mailto:louis.jauniau@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        louis.jauniau@gmail.com</a>
+      <a class="soc" href="https://github.com/LouisJauniau" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.3a10.7 10.7 0 0 0-3.4 20.9c.5.1.7-.2.7-.5v-1.9c-3 .6-3.6-1.4-3.6-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.6 2.5 1.2 3.1.9.1-.7.4-1.2.7-1.5-2.4-.3-4.9-1.2-4.9-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.2-2.5 5.1-4.9 5.4.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.7 10.7 0 0 0 12 1.3"/></svg>
+        GitHub</a>
+      <a class="soc" href="https://www.linkedin.com/in/louis-jauniau-a1ab94239" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg>
+        LinkedIn</a>
+      <a class="soc" href="tel:+33628483060">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        +33 6 28 48 30 60</a>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Louis Jauniau</span>
+    <span lang="fr">Écrit à la main, hébergé sur GitHub Pages</span>
+    <span lang="en">Hand-written, hosted on GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---- bascule FR / EN ---- */
+  var root = document.documentElement;
+  var titles = {
+    fr: "Louis Jauniau · Master 2 Informatique · Data & IA",
+    en: "Louis Jauniau · Computer Science Master's · Data & AI"
+  };
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-setlang]'));
+
+  function setLang(lang){
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang);
+    document.title = titles[lang];
+    buttons.forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-setlang') === lang));
+    });
+    try { localStorage.setItem('lang', lang); } catch(e){}
+  }
+
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-setlang')); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch(e){}
+  if(saved !== 'fr' && saved !== 'en'){
+    saved = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+  }
+  setLang(saved);
+
+  /* ---- révélation au scroll, avec filets de sécurité ---- */
+  var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  function showAll(){ els.forEach(function(el){ el.classList.add('in'); }); }
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(!('IntersectionObserver' in window) || reduced){
+    showAll();
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e, i){
+      if(e.isIntersecting){
+        e.target.style.transitionDelay = (Math.min(i, 4) * 60) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+
+  els.forEach(function(el){ io.observe(el); });
+
+  /* le hero apparaît tout de suite */
+  document.querySelectorAll('header .reveal').forEach(function(el, i){
+    setTimeout(function(){ el.classList.add('in'); }, 80 + i * 85);
+  });
+
+  /* si quoi que ce soit bloque, le contenu réapparaît */
+  setTimeout(showAll, 2500);
+})();
+</script>
+</body>
+</html>
