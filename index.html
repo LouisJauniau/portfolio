@@ -143,6 +143,9 @@
   /* ---- PROJETS ---- */
   .proj{display:grid;grid-template-columns:76px 1fr;gap:26px;padding:32px 0;border-top:1px solid var(--line)}
   .proj:last-child{border-bottom:1px solid var(--line)}
+  .proj-group{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.09em;
+    text-transform:uppercase;color:var(--ink-faint);font-weight:500;margin:46px 0 6px}
+  .proj-group:first-of-type{margin-top:4px}
   @media(max-width:680px){.proj{grid-template-columns:1fr;gap:10px;padding:26px 0}}
   .proj-year{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);padding-top:6px}
   .proj-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:8px}
@@ -244,7 +247,7 @@
       </a>
       <a class="btn btn-ghost" href="#projects">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        <span lang="fr">Voir les trois projets</span><span lang="en">See the three projects</span>
+        <span lang="fr">Voir les projets</span><span lang="en">See the projects</span>
       </a>
     </div>
   </header>
@@ -296,8 +299,8 @@
         <h3><span lang="fr">Data &amp; machine learning</span><span lang="en">Data &amp; machine learning</span></h3>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span>
-          <span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">JPype</span>
-          <span class="tag">ARX</span>
+          <span class="tag">numpy</span><span class="tag">OpenCV</span><span class="tag">SQL</span>
+          <span class="tag">PostgreSQL</span><span class="tag">JPype</span><span class="tag">ARX</span>
         </div>
       </div>
       <div class="skill reveal">
@@ -333,11 +336,78 @@
       <span class="sec-line" aria-hidden="true"></span>
     </div>
 
+    <h3 class="proj-group reveal"><span lang="fr">Projets personnels</span><span lang="en">Personal projects</span></h3>
+
     <article class="proj reveal">
       <div class="proj-year">2026</div>
       <div>
         <div class="proj-top">
-          <h3 class="proj-name"><span lang="fr">Benchmark d'attaques sur données anonymisées</span><span lang="en">Privacy Attack Benchmarking</span></h3>
+          <h4 class="proj-name">spotisim</h4>
+          <span class="proj-role"><span lang="fr">Projet personnel</span><span lang="en">Personal project</span></span>
+        </div>
+        <p class="proj-desc" lang="fr">Un outil en ligne de commande qui part d'une chanson et d'une playlist Spotify, puis en extrait les cent titres les plus proches de la graine. Le classement combine sept critères pondérés, dont un <strong>cosinus pondéré par la rareté (IDF)</strong> sur les genres et les tags Last.fm et une gaussienne sur l'écart d'année. Quand une source est indisponible, sa composante est retirée et les poids restants renormalisés, plutôt que remplacés par une valeur neutre qui fausserait le résultat.</p>
+        <p class="proj-desc" lang="en">A command-line tool that takes a song and a Spotify playlist, then pulls the hundred tracks closest to the seed. Ranking combines seven weighted criteria, including a <strong>rarity-weighted (IDF) cosine</strong> over Last.fm genres and tags, and a gaussian on release-year distance. When a source is unavailable its component is dropped and the remaining weights renormalised, rather than filled with a neutral value that would skew the result.</p>
+        <div class="proj-tags">
+          <span class="tag">Python</span><span class="tag">Spotify API</span><span class="tag">Last.fm</span>
+          <span class="tag">TF-IDF</span><span class="tag">cosinus</span><span class="tag">recommandation</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/LouisJauniau/spotisim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.3a10.7 10.7 0 0 0-3.4 20.9c.5.1.7-.2.7-.5v-1.9c-3 .6-3.6-1.4-3.6-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.6 2.5 1.2 3.1.9.1-.7.4-1.2.7-1.5-2.4-.3-4.9-1.2-4.9-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.2-2.5 5.1-4.9 5.4.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.7 10.7 0 0 0 12 1.3"/></svg>
+            <span lang="fr">Code source</span><span lang="en">Source code</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj reveal">
+      <div class="proj-year">2026</div>
+      <div>
+        <div class="proj-top">
+          <h4 class="proj-name"><span lang="fr">Lecteur de table de poker</span><span lang="en">Poker table reader</span></h4>
+          <span class="proj-role"><span lang="fr">Projet personnel</span><span lang="en">Personal project</span></span>
+        </div>
+        <p class="proj-desc" lang="fr">Vision par ordinateur et simulation. Le programme lit les cartes visibles sur une table de Texas Hold'em affichée à l'écran, même partiellement masquées, en classant contre 52 gabarits empilés en matrice. Il calcule ensuite la probabilité de gain par <strong>20 000 tirages Monte-Carlo vectorisés sous numpy</strong>. Un banc d'essai génère des tables synthétiques à vérité terrain connue et mesure la précision sans annotation manuelle : <strong>866 boards exacts sur 1008</strong>, sans aucune erreur affirmée. Développé et évalué contre une implémentation maison du jeu.</p>
+        <p class="proj-desc" lang="en">Computer vision and simulation. The program reads the cards visible on a Texas Hold'em table shown on screen, even partially hidden ones, classifying against 52 templates stacked into a matrix. It then computes win probability through <strong>20,000 Monte Carlo draws vectorised with numpy</strong>. A test bench generates synthetic tables with known ground truth and measures accuracy without manual annotation: <strong>866 exact boards out of 1008</strong>, with no confidently wrong reads. Built and evaluated against a home-made implementation of the game.</p>
+        <div class="proj-tags">
+          <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">numpy</span>
+          <span class="tag">Monte-Carlo</span><span class="tag">vision</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/LouisJauniau/poker-table-reader" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.3a10.7 10.7 0 0 0-3.4 20.9c.5.1.7-.2.7-.5v-1.9c-3 .6-3.6-1.4-3.6-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.6 2.5 1.2 3.1.9.1-.7.4-1.2.7-1.5-2.4-.3-4.9-1.2-4.9-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.2-2.5 5.1-4.9 5.4.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.7 10.7 0 0 0 12 1.3"/></svg>
+            <span lang="fr">Code source</span><span lang="en">Source code</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj reveal">
+      <div class="proj-year">2026</div>
+      <div>
+        <div class="proj-top">
+          <h4 class="proj-name">RadioShare</h4>
+          <span class="proj-role"><span lang="fr">Projet personnel</span><span lang="en">Personal project</span></span>
+        </div>
+        <p class="proj-desc" lang="fr">Un lecteur de bureau et un bot Discord bâtis sur un catalogue de <strong>37 063 stations de radio</strong>, normalisé depuis des sources publiques avec pays, ville, genre et coordonnées. L'autocomplétion répond en 5 à 11 ms grâce au précalcul des replis sans accent au chargement, le tirage entre pays est uniforme pour ne pas surreprésenter les États-Unis et le Brésil, et FFmpeg transcode les flux vers l'Opus attendu par Discord.</p>
+        <p class="proj-desc" lang="en">A desktop player and a Discord bot built on a catalogue of <strong>37,063 radio stations</strong>, normalised from public sources with country, city, genre and coordinates. Autocomplete answers in 5 to 11 ms thanks to accent-stripped fallbacks precomputed at load, country draws are uniform so the US and Brazil don't dominate, and FFmpeg transcodes streams into the Opus that Discord expects.</p>
+        <div class="proj-tags">
+          <span class="tag">Python</span><span class="tag">discord.py</span><span class="tag">FFmpeg</span>
+          <span class="tag">PyInstaller</span><span class="tag">JSON</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/LouisJauniau/radioshare" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.3a10.7 10.7 0 0 0-3.4 20.9c.5.1.7-.2.7-.5v-1.9c-3 .6-3.6-1.4-3.6-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.6 2.5 1.2 3.1.9.1-.7.4-1.2.7-1.5-2.4-.3-4.9-1.2-4.9-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.2-2.5 5.1-4.9 5.4.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.7 10.7 0 0 0 12 1.3"/></svg>
+            <span lang="fr">Code source</span><span lang="en">Source code</span></a>
+        </div>
+      </div>
+    </article>
+
+    <h3 class="proj-group reveal"><span lang="fr">Projets universitaires</span><span lang="en">University projects</span></h3>
+
+    <article class="proj reveal">
+      <div class="proj-year">2026</div>
+      <div>
+        <div class="proj-top">
+          <h4 class="proj-name"><span lang="fr">Benchmark d'attaques sur données anonymisées</span><span lang="en">Privacy Attack Benchmarking</span></h4>
           <span class="proj-role"><span lang="fr">TER · Recherche</span><span lang="en">TER · Research</span></span>
         </div>
         <p class="proj-desc" lang="fr">Un <strong>pipeline Python de bout en bout</strong> : ingérer un jeu de données, l'anonymiser via le moteur ARX, entraîner des modèles d'attaque en scikit-learn, puis mesurer ce qui reste identifiable et ce que l'anonymisation a coûté en utilité. Appariement de schémas sur colonnes obfusquées, métriques automatisées et rapports HTML générés à chaque exécution.</p>
@@ -361,7 +431,7 @@
       <div class="proj-year">2025</div>
       <div>
         <div class="proj-top">
-          <h3 class="proj-name">AURA · <span lang="fr">guide d'architecture</span><span lang="en">architecture guide</span></h3>
+          <h4 class="proj-name">AURA · <span lang="fr">guide d'architecture</span><span lang="en">architecture guide</span></h4>
           <span class="proj-role"><span lang="fr">Projet de groupe</span><span lang="en">Group project</span></span>
         </div>
         <p class="proj-desc" lang="fr">Une application cartographique pour explorer l'architecture contemporaine parisienne. Migration d'une application mobile Flutter vers une <strong>Progressive Web App</strong>, gestion des contenus et des médias via Firebase, intégration d'un <strong>chatbot</strong> spécialisé en architecture (OpenAI) et refonte de l'interface d'administration.</p>
@@ -382,7 +452,7 @@
       <div class="proj-year">2024</div>
       <div>
         <div class="proj-top">
-          <h3 class="proj-name">Pac-Man 3D</h3>
+          <h4 class="proj-name">Pac-Man 3D</h4>
           <span class="proj-role"><span lang="fr">Projet de groupe · Unity</span><span lang="en">Group project · Unity</span></span>
         </div>
         <p class="proj-desc" lang="fr">Une relecture en 3D du Pac-Man original, développée sous Unity : <strong>quatre niveaux aux ambiances distinctes</strong> (de l'arcade fidèle au niveau d'horreur, jusqu'à un boss final vertical), IA des fantômes via NavMesh, mode marathon, système de sauvegarde et menus complets. Testé sur 200 parties avec 30 joueurs.</p>
