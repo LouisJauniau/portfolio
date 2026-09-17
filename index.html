@@ -314,6 +314,26 @@
       <div class="proj-year">2026</div>
       <div>
         <div class="proj-top">
+          <h4 class="proj-name"><span lang="fr">Flux d'événements vers PostgreSQL</span><span lang="en">Event stream to PostgreSQL</span></h4>
+          <span class="proj-role"><span lang="fr">Projet personnel · SQL</span><span lang="en">Personal project · SQL</span></span>
+        </div>
+        <p class="proj-desc" lang="fr">Une chaîne d'ingestion qui transforme <strong>227 825 événements horodatés</strong>, lus depuis un JSON profondément imbriqué, en un schéma <strong>PostgreSQL</strong> normalisé que j'ai modélisé : base reconstruite en 57 secondes, index composites, colonnes calculées, et une règle vérifiée par test garantissant qu'aucune clé du format source n'est perdue. L'opération centrale est une <strong>sessionisation en SQL fenêtré</strong> : passer d'une table d'actions à une table de séquences, 11 199 au total, puis à un entonnoir de conversion à quatre étapes. C'est la même requête que celle qui transforme un flux de clics en sessions utilisateur. Le découpage est confronté à une vérité terrain, et c'est là que le projet dit quelque chose : ma première métrique annonçait <strong>96,8 %</strong> d'accord parce qu'elle ne comptait qu'un des deux types d'erreur possibles. En comptant les deux, le taux réel est <strong>75,1 %</strong>, et un réglage optimal apparaît là où les deux erreurs s'équilibrent. 22 tests, totaux recoupés avec les chiffres officiels de la compétition source.</p>
+        <p class="proj-desc" lang="en">An ingestion pipeline turning <strong>227,825 timestamped events</strong>, read from deeply nested JSON, into a normalised <strong>PostgreSQL</strong> schema I modelled myself: database rebuilt in 57 seconds, composite indexes, generated columns, and a test-enforced rule guaranteeing no key from the source format is lost. The core operation is <strong>sessionisation in windowed SQL</strong>: going from a table of actions to a table of sequences, 11,199 of them, then to a four-step conversion funnel. It is the same query that turns a clickstream into user sessions. The segmentation is checked against ground truth, and that is where the project says something: my first metric reported <strong>96.8%</strong> agreement because it only counted one of the two possible error types. Counting both, the real figure is <strong>75.1%</strong>, with an optimum where the two errors balance. 22 tests, totals reconciled against the source competition's official figures.</p>
+        <div class="proj-tags">
+          <span class="tag">PostgreSQL</span><span class="tag">SQL fenêtré</span><span class="tag">Python</span>
+          <span class="tag">psycopg2</span><span class="tag">pytest</span><span class="tag">ETL</span>
+        </div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/LouisJauniau/wc2018-event-pipeline" target="_blank" rel="noopener">
+            <span lang="fr">Code source sur GitHub</span><span lang="en">Source code on GitHub</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-year">2026</div>
+      <div>
+        <div class="proj-top">
           <h4 class="proj-name"><span lang="fr">Régularité des TGV</span><span lang="en">TGV punctuality</span></h4>
           <span class="proj-role"><span lang="fr">Projet personnel · Dash</span><span lang="en">Personal project · Dash</span></span>
         </div>
