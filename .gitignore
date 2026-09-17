@@ -1,1 +1,19 @@
 *.bak
+*.bak2
+
+# fichiers de travail du CV
+# la photo n'est plus utilisee sur le CV : on ne la publie pas
+cv/source.jpg
+cv/photo.jpg
+cv/preview.png
+cv/avant_apres.png
+cv/out.pdf
+
+# CV cibles par entreprise : ils restent locaux.
+# Un recruteur ne doit pas pouvoir lire la version ecrite pour un autre.
+# La source maitresse cv/cv.html et cv/build.sh restent suivis.
+cv/cv-*.html
+cv/CV_Louis_Jauniau_*.pdf
+
+# retouche photo, inutilisee depuis le retrait de la photo du CV
+cv/retouch.py

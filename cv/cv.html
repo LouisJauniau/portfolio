@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV Louis Jauniau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+
+  :root{
+    /* une seule échelle, pas de valeurs au hasard */
+    --s1:1.6mm; --s2:2.5mm; --s3:2.5mm; --s4:3.3mm; --s5:7mm;
+    --ink:#16181B;
+    --ink-mid:#3D444C;
+    --ink-soft:#61696F;
+    --rule:#C8CCD1;
+    --accent:#8A6A22;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  html,body{
+    font-family:'Source Sans 3',Calibri,system-ui,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    font-size:9.0pt;
+    line-height:1.30;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    width:210mm; min-height:297mm;
+    padding:11mm 14mm 7mm;
+    background:#fff;
+  }
+
+  /* ---------- EN-TÊTE ---------- */
+  .head{margin-bottom:var(--s3)}
+
+  h1{
+    font-family:'Source Serif 4',Georgia,serif;
+    font-size:21pt;font-weight:600;letter-spacing:0.01em;line-height:1.05;
+    margin-bottom:var(--s1);
+  }
+  .role{font-size:10.6pt;color:var(--ink-mid);margin-bottom:var(--s2);max-width:150mm}
+  .contact{font-size:8.6pt;color:var(--ink-soft);line-height:1.55}
+  .contact a{color:inherit;text-decoration:none}
+
+  /* ---------- BANDEAU DISPO ---------- */
+  .banner{
+    border-top:1pt solid var(--ink);
+    border-bottom:0.5pt solid var(--rule);
+    padding:1.8mm 0;
+    margin-bottom:var(--s3);
+    font-size:9.6pt;
+  }
+  .banner b{font-weight:700}
+  .banner .dom{display:block;font-size:8.7pt;color:var(--ink-mid);margin-top:1.2mm}
+
+  /* ---------- GRILLE ---------- */
+  .cols{display:grid;grid-template-columns:59mm 1fr;gap:var(--s5)}
+
+  h2{
+    font-family:'Source Serif 4',Georgia,serif;
+    font-size:10pt;font-weight:600;letter-spacing:0.02em;
+    padding-bottom:1mm;margin-bottom:var(--s2);
+    border-bottom:0.75pt solid var(--ink);
+  }
+  .block{margin-bottom:var(--s4)}
+  .block:last-child{margin-bottom:0}
+
+  p{margin-bottom:var(--s2)}
+  p:last-child{margin-bottom:0}
+
+  /* ---------- COLONNE GAUCHE ---------- */
+  .kv{margin-bottom:var(--s2)}
+  .kv:last-child{margin-bottom:0}
+  .kv dt{font-weight:700;font-size:8.8pt;margin-bottom:0.3mm}
+  .kv dd{color:var(--ink-mid);font-size:8.8pt;line-height:1.42}
+
+  .lang-row{display:flex;justify-content:space-between;gap:var(--s2);font-size:9pt;margin-bottom:1mm}
+  .lang-row:last-child{margin-bottom:0}
+  .lang-row span:last-child{color:var(--ink-soft)}
+
+  .edu{margin-bottom:var(--s2)}
+  .edu:last-child{margin-bottom:0}
+  .edu .deg{font-weight:700;font-size:9.2pt;line-height:1.3}
+  .edu .org{color:var(--ink-mid);font-size:8.8pt}
+  .edu .note{color:var(--ink-soft);font-size:8.4pt}
+
+  /* ---------- COLONNE DROITE ---------- */
+  .proj{margin-bottom:var(--s3);break-inside:avoid}
+  .proj:last-child{margin-bottom:0}
+  .proj-head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2)}
+  .proj-name{font-weight:700;font-size:9.8pt;line-height:1.3}
+  .proj-when{color:var(--ink-soft);font-size:8.2pt;white-space:nowrap;flex:none}
+  .proj ul{list-style:none;margin:0.8mm 0 0.8mm}
+  .proj li{position:relative;padding-left:3.2mm;color:var(--ink-mid);margin-bottom:0.6mm}
+  .proj li::before{content:"";position:absolute;left:0;top:1.7mm;width:1.4mm;height:0.5pt;background:var(--ink-soft)}
+  .stack{font-size:8.3pt;color:var(--accent)}
+
+  .avail{font-size:9.2pt;color:var(--ink-mid)}
+  .avail b{color:var(--ink);font-weight:700}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="head">
+      <h1>Louis Jauniau</h1>
+      <p class="role">Étudiant en Master 2 Informatique à l'Université Paris Cité, spécialisation Données, Connaissances et Intelligence.</p>
+      <div class="contact">
+        +33 6 28 48 30 60 · louis.jauniau@gmail.com · Paris, France<br>
+        github.com/LouisJauniau · linkedin.com/in/louis-jauniau · louisjauniau.github.io/portfolio
+      </div>
+  </div>
+
+  <div class="banner">
+    <b>Stage de fin d'études de 6 mois, à temps plein dès janvier 2027</b>
+    <span class="dom">Data science · Data engineering · Analyse de données · R&amp;D · IA engineering</span>
+  </div>
+
+  <div class="cols">
+
+    <!-- ================= COLONNE GAUCHE ================= -->
+    <div>
+
+      <section class="block">
+        <h2>Profil</h2>
+        <p>Étudiant en M2 Informatique à l'Université Paris Cité, spécialisation Données, Connaissances et Intelligence. Je cherche un stage de fin d'études de six mois, à temps plein à partir de janvier 2027.</p>
+        <p>Mes projets récents vont d'un tableau de bord Dash sur la régularité des TGV à un pipeline mesurant ce qu'une anonymisation laisse encore fuiter.</p>
+      </section>
+
+      <section class="block">
+        <h2>Compétences</h2>
+        <dl>
+          <div class="kv"><dt>Données et ML</dt>
+            <dd>pandas, numpy, scipy, scikit-learn, OpenCV, Jupyter, pipelines Python reproductibles</dd></div>
+          <div class="kv"><dt>Restitution</dt>
+            <dd>Dash, Plotly, tableaux de bord interactifs, rapports HTML générés</dd></div>
+          <div class="kv"><dt>Langages</dt>
+            <dd>Python, SQL, Java, JavaScript, C, C++, C#, Dart</dd></div>
+          <div class="kv"><dt>Bases de données</dt>
+            <dd>PostgreSQL, SQL, Firebase</dd></div>
+          <div class="kv"><dt>IA appliquée</dt>
+            <dd>intégration de l'API OpenAI, anonymisation et attaques sur données (ARX, k-anonymité, inférence d'appartenance)</dd></div>
+          <div class="kv"><dt>Dev et outils</dt>
+            <dd>React, Node.js, Flutter, Git, GitHub, SVN, VS Code, Ubuntu</dd></div>
+        </dl>
+      </section>
+
+      <section class="block">
+        <h2>Langues</h2>
+        <div class="lang-row"><span>Français</span><span>langue maternelle</span></div>
+        <div class="lang-row"><span>Anglais</span><span>B2</span></div>
+        <div class="lang-row"><span>Espagnol</span><span>A2</span></div>
+      </section>
+
+      <section class="block">
+        <h2>Formation</h2>
+        <div class="edu">
+          <div class="deg">Master Informatique, spécialisation Données, Connaissances et Intelligence</div>
+          <div class="org">Université Paris Cité, depuis 2025</div>
+          <div class="note">M2 en cours, 2026 / 2027</div>
+        </div>
+        <div class="edu">
+          <div class="deg">Licence Informatique</div>
+          <div class="org">Université Paris Cité, 2022 à 2025</div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================= COLONNE DROITE ================= -->
+    <div>
+
+      <section class="block">
+        <h2>Projets</h2>
+
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">Régularité des TGV, tableau de bord Dash sur données open data</div>
+            <div class="proj-when">2026, projet personnel</div>
+          </div>
+          <ul>
+            <li>121 liaisons, une mesure par mois : classement corrigé par rétrécissement bayésien empirique (Beta-Binomial) avec intervalle de crédibilité</li>
+            <li>Parts de causes converties en heures perdues : 41 870 h de retard cumulées en 2025, dont 23,5 % pour la gestion du trafic</li>
+            <li>Modèle additif liaison + mois, résidus standardisés en détecteur d'anomalies : rupture identifiée sur Paris Est - Stuttgart (18 % à 88 % de retards)</li>
+          </ul>
+          <div class="stack">Python, Dash, Plotly, pandas, scipy, pytest</div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">Privacy Attack Benchmarking, pipeline data et machine learning</div>
+            <div class="proj-when">2026, recherche (TER)</div>
+          </div>
+          <ul>
+            <li>Pipeline Python de bout en bout : ingestion, anonymisation via le moteur ARX, entraînement de modèles d'attaque en scikit-learn, mesure de ce qui reste identifiable</li>
+            <li>Appariement de schémas sur colonnes obfusquées, métriques et rapports HTML générés à chaque exécution</li>
+          </ul>
+          <div class="stack">Python, scikit-learn, pandas, ARX, JPype</div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">spotisim, construction de playlists par similarité</div>
+            <div class="proj-when">2026, projet personnel</div>
+          </div>
+          <ul>
+            <li>Classement par cosinus pondéré par la rareté (IDF) sur les genres et les tags Last.fm</li>
+            <li>Score à sept critères, poids renormalisés quand une source manque, avec cache et parallélisation</li>
+          </ul>
+          <div class="stack">Python, Spotify API, Last.fm, TF-IDF</div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">Lecteur de table de poker, vision et simulation</div>
+            <div class="proj-when">2026, projet personnel</div>
+          </div>
+          <ul>
+            <li>Lecture de cartes partiellement masquées, classification contre 52 gabarits</li>
+            <li>Probabilité de gain par 20 000 tirages Monte-Carlo vectorisés sous numpy</li>
+            <li>Banc d'essai à vérité terrain synthétique : 866 boards exacts sur 1008</li>
+          </ul>
+          <div class="stack">Python, OpenCV, numpy, Monte-Carlo</div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">RadioShare, lecteur de bureau et bot Discord</div>
+            <div class="proj-when">2026, projet personnel</div>
+          </div>
+          <ul>
+            <li>Catalogue de 37 063 stations normalisé depuis des sources publiques, autocomplétion en 5 à 11 ms</li>
+            <li>Tirage uniforme entre pays, transcodage des flux vers Opus par FFmpeg</li>
+          </ul>
+          <div class="stack">Python, discord.py, FFmpeg, PyInstaller</div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">AURA, application web avec assistant conversationnel</div>
+            <div class="proj-when">2025, projet collectif</div>
+          </div>
+          <ul>
+            <li>Migration d'une application Flutter vers une PWA, contenus en temps réel via Firebase, assistant spécialisé en architecture branché sur l'API OpenAI</li>
+          </ul>
+          <div class="stack">Flutter, Dart, PWA, Firebase, OpenAI API</div>
+        </div>
+
+      </section>
+
+      <section class="block">
+        <h2>Expérience</h2>
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">Vente et relation client, jobs étudiants</div>
+            <div class="proj-when">2023 à 2024</div>
+          </div>
+          <ul>
+            <li>GROM, Amorino, Intersport : service en forte affluence et formation de nouveaux apprentis</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Disponibilité</h2>
+        <p class="avail"><b>Six mois à temps plein dès janvier 2027</b>, jusqu'à la soutenance du mémoire en septembre. Démarrage en février ou en mars également possible.</p>
+      </section>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
